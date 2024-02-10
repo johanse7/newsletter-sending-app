@@ -39,10 +39,4 @@ npm run dev
 url site:[ https://webapp-challenge-ml.vercel.app](https://clone-x-pi.vercel.app/
 ```
 
-### Desktop
 
-![image](https://github.com/johanse7/clone_X/assets/11396749/4d78fc92-d029-428a-88dd-2b997713ea7c)
-
-### Mobile
-
-![image](https://github.com/johanse7/clone_X/assets/11396749/9e456ad8-cd9a-4b7e-b34b-66ed91524b5d)
