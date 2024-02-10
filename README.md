@@ -1,4 +1,4 @@
-# Challenge Technical Challenge
+# Technical Challenge
 
 Next.js 14, React, Typescript and postgresql sql 
 
