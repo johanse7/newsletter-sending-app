@@ -1,8 +1,7 @@
 import { Suspense } from 'react';
-import CardWrapper from '../ui/dashboard/cards';
+import { CountNewsletter } from '../ui/dashboard/countNewsletter';
 import { lusitana } from '../ui/fonts';
 import { CardsSkeleton } from '../ui/skeletons';
-import { CountNewsletter } from '../ui/dashboard/countNewsletter';
 
 export default async function DashboardPage() {
   return (

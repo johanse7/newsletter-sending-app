@@ -1,7 +1,8 @@
-import { UserSession } from '@/app/lib/actions';
+
 import { getNewslattersByRole } from '@/app/lib/services';
 import { auth } from '@/auth';
 import { Card } from './cardNewsletter';
+import { UserSession } from '@/app/lib/types';
 
 export async function NewsletterList() {
   const session = (await auth()) as UserSession;
