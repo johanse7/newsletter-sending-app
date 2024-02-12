@@ -34,9 +34,11 @@ Para iniciar la ejecución del proyecto en modo desarrollo se debe ejecutar el s
 ```
 npm run dev
 ```
+![image](https://github.com/johanse7/newsletter-sending-app/assets/11396749/8afcb4be-a2e9-421a-a476-f34c7620202c)
+
 
 ```
-url site:[ https://webapp-challenge-ml.vercel.app](https://clone-x-pi.vercel.app/
+url site: https://newsletter-sending-66mchoj1o-johanrodriguez14.vercel.app/
 ```
 
 
