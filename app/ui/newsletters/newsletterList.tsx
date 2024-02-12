@@ -1,5 +1,5 @@
-import { getNewslattersByRole } from '@/app/lib/data';
-import { UserSession } from '@/app/lib/definitions';
+import { UserSession } from '@/app/lib/actions';
+import { getNewslattersByRole } from '@/app/lib/services';
 import { auth } from '@/auth';
 import { Card } from './cardNewsletter';
 
@@ -14,7 +14,7 @@ export async function NewsletterList() {
 
   return (
     <>
-      {newslatters.splice(0, 1).map((item) => (
+      {newslatters.map((item) => (
         <Card key={item.id} {...item} />
       ))}
     </>

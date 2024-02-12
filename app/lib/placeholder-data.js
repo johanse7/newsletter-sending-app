@@ -7,9 +7,13 @@ const users = [
   },
 
   {
-    name: 'luis',
-    email: 'lucho@gmail.com',
+    name: 'Sebastian Rodriguez',
+    email: 'johanrodriguez93@gmail.com',
     password: '123456',
     isAdmin: false,
   },
 ];
+
+module.exports = {
+  users,
+};

@@ -1,7 +1,7 @@
 'use client';
 
 import { createNewsletter } from '@/app/lib/actions';
-import { UserSelectType } from '@/app/lib/definitions';
+import { UserSelectType } from '@/app/lib/types';
 import { Button } from '@/app/ui/button';
 import Link from 'next/link';
 import { useFormState, useFormStatus } from 'react-dom';

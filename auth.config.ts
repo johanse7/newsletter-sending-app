@@ -1,6 +1,6 @@
 import type { NextAuthConfig } from 'next-auth';
-import { getRoleUserById } from './app/lib/data';
-import { UserSession } from './app/lib/definitions';
+import { getRoleUserById } from './app/lib/services';
+import { UserSession } from './app/lib/types';
 
 export const authConfig = {
   pages: {

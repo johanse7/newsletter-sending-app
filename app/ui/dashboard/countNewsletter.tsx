@@ -1,4 +1,4 @@
-import { getCountNewsLatter } from '@/app/lib/data';
+import { getCountNewsLatter } from '@/app/lib/services';
 
 export const CountNewsletter = async () => {
   const count = await getCountNewsLatter();

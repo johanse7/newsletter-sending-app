@@ -1,4 +1,4 @@
-import { getAllUser } from '@/app/lib/data';
+import { getAllUser } from '@/app/lib/services';
 import Breadcrumbs from '@/app/ui/breadcrumbs';
 import { CreateForm } from '../../../ui/newsletters/createForm';
 

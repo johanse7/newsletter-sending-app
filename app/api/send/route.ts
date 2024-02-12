@@ -1,22 +1,14 @@
 // import { NextResponse } from 'next/server';
 export const dynamic = 'force-dynamic';
-import { ACCEPTED_IMAGE_MIME_TYPES, MAX_FILE_SIZE } from '@/app/lib/constants';
+import { fileSchema, stringRequiredSchema } from '@/app/lib/schemas';
 import { EmailTemplate } from '@/app/ui/emailTemplate';
 import { Resend } from 'resend';
 import { z } from 'zod';
 
 const emailSchema = z.object({
-  title: z.string().trim().min(1, { message: 'Field is Required' }),
-  fileNewsletter: z
-    .any()
-    .refine((file: File) => {
-      return file?.size <= MAX_FILE_SIZE;
-    }, `Max image size is 5MB.`)
-    .refine(
-      (file: File) => ACCEPTED_IMAGE_MIME_TYPES.includes(file?.type),
-      'Only .jpg, .jpeg, .png, .webp and pdf formats are supported.',
-    ),
-  emails: z.string().trim().min(1, { message: 'Field is Required' }),
+  title: stringRequiredSchema,
+  fileNewsletter: fileSchema,
+  emails: stringRequiredSchema,
 });
 
 const resend = new Resend(process.env.RESEND_API_KEY);

@@ -1,5 +1,5 @@
 import { unsubscribeNewsletter } from '@/app/lib/actions';
-import { NewslatterType } from '@/app/lib/definitions';
+import { NewslatterType } from '@/app/lib/types';
 import { Button } from '@/app/ui/button';
 import { BellSlashIcon } from '@heroicons/react/24/solid';
 

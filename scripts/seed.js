@@ -1,5 +1,5 @@
 const { db } = require('@vercel/postgres');
-const { revenue, users } = require('../app/lib/placeholder-data.js');
+const { users } = require('../app/lib/placeholder-data.js');
 const bcrypt = require('bcrypt');
 
 async function seedUsers(client) {
@@ -30,6 +30,8 @@ async function seedUsers(client) {
       }),
     );
 
+    console.log({ users });
+
     console.log(`Seeded ${insertedUsers.length} users`);
 
     return {
@@ -53,7 +55,7 @@ async function seeNewsletter(client) {
             fileNewsletter BYTEA NOT NULL,
             createdBy UUID NOT NULL
           );
-        );
+      
 `;
 
     console.log(`Created "Newsletter" table`);

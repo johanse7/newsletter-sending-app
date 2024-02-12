@@ -1,25 +1,17 @@
 'use server';
 
-import { ACCEPTED_IMAGE_MIME_TYPES, MAX_FILE_SIZE } from '@/app/lib/constants';
 import { auth, signIn } from '@/auth';
 import { AuthError } from 'next-auth';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { z } from 'zod';
-import { deleteNewsletter, insertNewslatter, sendEmail } from './data';
-import { UserSession } from './definitions';
+import { fileSchema, stringRequiredSchema } from './schemas';
+import { deleteNewsletter, insertNewslatter, sendEmail } from './services';
+import { UserSession } from './types';
 
 const FormCreateSchema = z.object({
-  title: z.string().trim().min(1, { message: 'Field is Required' }),
-  fileNewsletter: z
-    .any()
-    .refine((file: File) => {
-      return file?.size <= MAX_FILE_SIZE;
-    }, `Max image size is 5MB.`)
-    .refine(
-      (file: File) => ACCEPTED_IMAGE_MIME_TYPES.includes(file?.type),
-      'Only .jpg, .jpeg, .png, .webp and pdf formats are supported.',
-    ),
+  title: stringRequiredSchema,
+  fileNewsletter: fileSchema,
   recipients: z
     .array(z.string())
     .refine((value) => value.length > 0, 'Field is Required'),

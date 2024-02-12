@@ -1,4 +1,4 @@
-import type { User } from '@/app/lib/definitions';
+import type { User } from '@/app/lib/types';
 import { sql } from '@vercel/postgres';
 import bcrypt from 'bcrypt';
 import NextAuth from 'next-auth';

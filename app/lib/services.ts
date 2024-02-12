@@ -4,7 +4,7 @@ import {
   NewslatterType,
   User,
   UserSelectType,
-} from './definitions';
+} from './types';
 
 export async function getUserByEmail(email: string) {
   try {
@@ -16,35 +16,36 @@ export async function getUserByEmail(email: string) {
   }
 }
 
-export const insertNewslatter = async (
-  payload: NewslatterPayload,
-): Promise<boolean> => {
-  const { file, title, userId, recipientIds } = payload;
+export const insertNewslatter = async (payload: NewslatterPayload) => {
+  try {
+    const { file, title, userId, recipientIds } = payload;
 
-  const arrayBuffer = await file.arrayBuffer();
-  const buffer = new Uint8Array(arrayBuffer);
+    const arrayBuffer = await file.arrayBuffer();
+    const buffer = new Uint8Array(arrayBuffer);
 
-  const resultNewsletter = await sql`
+    const resultNewsletter = await sql`
     INSERT INTO Newsletter (title, fileNewsletter, createdBy)
     VALUES (${title}, ${buffer.toString()}, ${userId}) RETURNING id
   `;
 
-  const newsletterId = resultNewsletter.rows?.[0]?.id;
+    const newsletterId = resultNewsletter.rows?.[0]?.id;
 
-  for (const recipient of recipientIds) {
-    const result = await sql`
+    for (const recipient of recipientIds) {
+      await sql`
     INSERT INTO User_Newsletter (userId, NewsletterId)
     VALUES (${recipient}, ${newsletterId})
   `;
-   
+    }
+  } catch (error) {
+    console.error('insert Newslatter:', error);
+    throw new Error('Failed insert  Newslatter.');
   }
-
-  return true;
 };
 
 export const getAllUser = async (): Promise<Array<UserSelectType>> => {
   try {
-    const user = await sql`SELECT id, name, email FROM users`;
+    const user = await sql`SELECT id, name, email, isadmin FROM users`;
+
     return user.rows as Array<UserSelectType>;
   } catch (error) {
     console.error('Failed to fetch user:', error);
@@ -85,7 +86,7 @@ export const getNewslattersByRole = async (
                FROM newsletter
               WHERE newsletter.createdBy = ${userId}
             `;
-      console.log(newsletterQuery?.rows as Array<NewslatterType>);
+
       return newsletterQuery?.rows as Array<NewslatterType>;
     }
 
@@ -135,7 +136,7 @@ export const sendEmail = async (formData: FormData) => {
 export const getCountNewsLatter = async (): Promise<number> => {
   try {
     const result = await sql`
-        SELECT COUNT(id) FROM newsletter
+        SELECT COUNT(title) FROM newsletter
         `;
 
     return result.rows?.[0]?.count as number;
