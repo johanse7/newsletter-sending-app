@@ -36,6 +36,10 @@ npm run dev
 ```
 ![image](https://github.com/johanse7/newsletter-sending-app/assets/11396749/8afcb4be-a2e9-421a-a476-f34c7620202c)
 
+![image](https://github.com/johanse7/newsletter-sending-app/assets/11396749/0f45bf08-377a-45e5-9b0e-e900f16906f8)
+
+![image](https://github.com/johanse7/newsletter-sending-app/assets/11396749/ac304ea3-fb20-4e08-ad7e-fda4b8effef0)
+
 
 ```
 url site: https://newsletter-sending-66mchoj1o-johanrodriguez14.vercel.app/
