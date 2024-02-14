@@ -33,7 +33,7 @@ export async function POST(req: Request) {
     await resend.emails.send({
       from: 'Newslatter app <onboarding@resend.dev>',
       to: emails.split(','),
-      subject: 'Hello world',
+      subject: 'Newletter app',
       react: EmailTemplate({ titleNewsletter: title }),
       text: '',
       attachments: [

@@ -8,7 +8,7 @@ const users = [
 
   {
     name: 'Sebastian Rodriguez',
-    email: 'johanrodriguez93@gmail.com',
+    email: 'johanrodriguezsanchez93@gmail.com',
     password: '123456',
     isAdmin: false,
   },
